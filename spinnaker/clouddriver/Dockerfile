@@ -1,1 +1,1 @@
-gcr.io/spinnaker-marketplace/clouddriver:2.0.0
+FROM gcr.io/spinnaker-marketplace/clouddriver:2.0.0
