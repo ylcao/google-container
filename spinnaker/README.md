@@ -1,5 +1,5 @@
 
-#Install Spinnaker on Ubuntu 16.04 //install.sh
+# Install Spinnaker on Ubuntu 16.04 //install.sh
 
 
 # Operations
