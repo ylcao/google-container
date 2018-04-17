@@ -120,7 +120,7 @@ gcs:
 # with Spinnaker, visit:
 #   https://www.spinnaker.io/setup/ci/jenkins/
 jenkins:
-  enabled: true
+  enabled: false
   Master:
     Cpu: "500m"
     Memory: "512Mi"
