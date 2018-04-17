@@ -105,7 +105,7 @@ done
  # vhosts
 if ! grep -Fxq "VirtualHost 127.0.0.1:9000" /etc/apache2/sites-available/spinnaker.conf
 then
-sed -i "s/VirtualHost\ 127\.0\.0\.1\:9000/VirtualHost\ \*\:9000/" /etc/apache2/ports.conf
+sed -i "s/VirtualHost\ 127\.0\.0\.1\:9000/VirtualHost\ \*\:9000/" /etc/apache2/sites-available/spinnaker.conf
 fi
 
 if ! grep -Fxq "Listen *:9000" /etc/apache2/ports.conf
