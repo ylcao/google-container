@@ -115,3 +115,4 @@ echo "NameVirtualHost *:9000
 Listen 9000
 "  >> /etc/apache2/ports.conf
 fi
+systemctl restart apache2
