@@ -58,6 +58,7 @@ curl -s -f "https://bintray.com/user/downloadSubjectPublicKey?username=spinnaker
 add-apt-repository -y ppa:openjdk-r/ppa
 apt-get update
 apt-get install -y \
+        openjdk-8-jdk \
         spinnaker-clouddriver \
         spinnaker-deck \
         spinnaker-echo \
