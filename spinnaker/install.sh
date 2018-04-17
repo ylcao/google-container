@@ -99,3 +99,18 @@ do
     systemctl enable $i
     systemctl start $i
 done
+
+#config apache2
+#===============
+ # vhosts
+if ! grep -Fxq "VirtualHost 127.0.0.1:9000" /etc/apache2/sites-available/spinnaker.conf
+then
+sed -i "s/VirtualHost\ 127\.0\.0\.1\:9000/VirtualHost\ \*\:9000/" /etc/apache2/ports.conf
+fi
+
+if ! grep -Fxq "Listen *:9000" /etc/apache2/ports.conf
+then
+echo "NameVirtualHost *:9000
+Listen 9000
+"  >> /etc/apache2/ports.conf
+fi
