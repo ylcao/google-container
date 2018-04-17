@@ -50,7 +50,7 @@ install_cassandra
 
 # Install Spinnaker
 # ==================================================
-echo "deb https://dl.bintray.com/spinnaker-releases/debians trusty-stable spinnaker" > \
+echo "deb https://dl.bintray.com/spinnaker/debians trusty spinnaker" > \
      /etc/apt/sources.list.d/spinnaker.list
 
 curl -s -f "https://bintray.com/user/downloadSubjectPublicKey?username=spinnaker" | apt-key add -
