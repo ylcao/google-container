@@ -37,6 +37,17 @@ apt-get install -y python-simplejson
 # ==================================================
 install_redis
 
+function install_cassandra(){
+    echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+    curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
+    sudo apt-get update
+    apt-get install -y openjdk-8-jdk cassandra
+    
+}
+
+# Install cassandra
+install_cassandra
+
 # Install Spinnaker
 # ==================================================
 echo "deb https://dl.bintray.com/spinnaker/debians trusty spinnaker" > \
@@ -47,7 +58,6 @@ curl -s -f "https://bintray.com/user/downloadSubjectPublicKey?username=spinnaker
 add-apt-repository -y ppa:openjdk-r/ppa
 apt-get update
 apt-get install -y \
-        openjdk-8-jdk \
         spinnaker-clouddriver \
         spinnaker-deck \
         spinnaker-echo \
