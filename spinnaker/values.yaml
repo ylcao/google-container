@@ -121,14 +121,11 @@ gcs:
 #   https://www.spinnaker.io/setup/ci/jenkins/
 jenkins:
   enabled: true
-  Master:
-    Cpu: "500m"
-    Memory: "512Mi"
-    ServiceType: LoadBalancer
-    CustomConfigMap: true
-    NodeSelector: {}
+  name: default
+  baseUrl: "http://172.16.3.3:32550"
+  username: admin
+  password: admin
 
-  Agent:
-    Cpu: "500m"
-    Memory: "512Mi"
-    NodeSelector: {}
+kubernetes:
+  enabled: true
+
