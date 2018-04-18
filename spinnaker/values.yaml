@@ -77,7 +77,7 @@ gate:
 storageBucket: spinnaker
 
 # Change service type for UI service
-serviceType: ClusterIP
+serviceType: LoadBalancer
 
 # Resources to provide to each of
 # the Spinnaker components
@@ -120,11 +120,11 @@ gcs:
 # with Spinnaker, visit:
 #   https://www.spinnaker.io/setup/ci/jenkins/
 jenkins:
-  enabled: false
+  enabled: true
   Master:
     Cpu: "500m"
     Memory: "512Mi"
-    ServiceType: ClusterIP
+    ServiceType: LoadBalancer
     CustomConfigMap: true
     NodeSelector: {}
 
