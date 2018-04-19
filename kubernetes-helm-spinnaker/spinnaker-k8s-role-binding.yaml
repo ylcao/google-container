@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: RoleBinding
+metadata:
+ name: spinnaker-role-binding
+ namespace: webapp
+roleRef:
+ apiGroup: rbac.authorization.k8s.io
+ kind: Role
+ name: spinnaker-role
+subjects:
+- namespace: default
+  kind: ServiceAccount
+  name: spinnaker-service-account

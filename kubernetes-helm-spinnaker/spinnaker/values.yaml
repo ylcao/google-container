@@ -36,23 +36,14 @@ slack:
 
 # Images for each component
 images:
-  #clouddriver: gcr.io/spinnaker-marketplace/clouddriver:2.0.0-20180221152902
-  #echo: gcr.io/spinnaker-marketplace/echo:0.8.0-20180221133510
-  #deck: gcr.io/spinnaker-marketplace/deck:2.1.0-20180221143146
-  #igor: gcr.io/spinnaker-marketplace/igor:0.9.0-20180221133510
-  #orca: gcr.io/spinnaker-marketplace/orca:0.10.0-20180221133510
-  #gate: gcr.io/spinnaker-marketplace/gate:0.10.0-20180221133510
-  #front50: gcr.io/spinnaker-marketplace/front50:0.9.0-20180221133510
-  #rosco: gcr.io/spinnaker-marketplace/rosco:0.5.0-20180221133510
-  
-  clouddriver: caoyongliang/spinnaker-clouddriver:2.0.0-20180221152902
-  echo: caoyongliang/spinnaker-echo:0.8.0-20180221133510
-  deck: caoyongliang/spinnaker-deck:2.1.0-20180221143146
-  igor: caoyongliang/spinnaker-igor:0.9.0-20180221133510
-  orca: caoyongliang/spinnaker-orca:0.10.0-20180221133510
-  gate: caoyongliang/spinnaker-gate:0.10.0-20180221133510
-  front50: caoyongliang/spinnaker-front50:0.9.0-20180221133510
-  rosco: caoyongliang/spinnaker-rosco:0.5.0-20180221133510
+  clouddriver: gcr.io/spinnaker-marketplace/clouddriver:2.0.0-20180221152902
+  echo: gcr.io/spinnaker-marketplace/echo:0.8.0-20180221133510
+  deck: gcr.io/spinnaker-marketplace/deck:2.1.0-20180221143146
+  igor: gcr.io/spinnaker-marketplace/igor:0.9.0-20180221133510
+  orca: gcr.io/spinnaker-marketplace/orca:0.10.0-20180221133510
+  gate: gcr.io/spinnaker-marketplace/gate:0.10.0-20180221133510
+  front50: gcr.io/spinnaker-marketplace/front50:0.9.0-20180221133510
+  rosco: gcr.io/spinnaker-marketplace/rosco:0.5.0-20180221133510
 
 # Change this if youd like to expose Spinnaker outside the cluster
 deck:
@@ -77,7 +68,7 @@ gate:
 storageBucket: spinnaker
 
 # Change service type for UI service
-serviceType: LoadBalancer
+serviceType: ClusterIP
 
 # Resources to provide to each of
 # the Spinnaker components
@@ -121,11 +112,14 @@ gcs:
 #   https://www.spinnaker.io/setup/ci/jenkins/
 jenkins:
   enabled: true
-  name: default
-  baseUrl: "http://172.16.3.3:32550"
-  username: admin
-  password: admin
+  Master:
+    Cpu: "500m"
+    Memory: "512Mi"
+    ServiceType: ClusterIP
+    CustomConfigMap: true
+    NodeSelector: {}
 
-kubernetes:
-  enabled: true
-
+  Agent:
+    Cpu: "500m"
+    Memory: "512Mi"
+    NodeSelector: {}
