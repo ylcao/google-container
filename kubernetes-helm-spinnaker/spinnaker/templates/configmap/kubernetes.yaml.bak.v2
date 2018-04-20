@@ -9,20 +9,24 @@ data:
     - cluster:
         server: https://172.16.2.187:6443
         certificate-authority: /root/.kube/ca.crt
-    name: kube01
+      name: development
     contexts:
     - context:
-        cluster: kube01
-        user: root
-    name: kube01
-    current-context: kube01
+        cluster: development
+        namespace: frontend
+        user: developer
+    name: dev-frontend
+    current-context: ""
     kind: Config
     preferences: {}
     users:
-    - name: root
-    user:
+    - name: developer
+      user:
         client-certificate: /root/.kube/apiserver.crt
         client-key: /root/.kube/apiserver.key
+    - name: spinnaker-service-account
+      user:
+        token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6InNwaW5uYWtlci1zZXJ2aWNlLWFjY291bnQtdG9rZW4tMGxsMTQiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoic3Bpbm5ha2VyLXNlcnZpY2UtYWNjb3VudCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6ImFmOGVkODIwLTQ0M2ItMTFlOC1hY2Q0LWZhMTYzZWY3OGRjYyIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpkZWZhdWx0OnNwaW5uYWtlci1zZXJ2aWNlLWFjY291bnQifQ.HfvRlJFV0StTAAE7iwm6s6Q9VFyaqBITK3-o_dHvJh5xVyMGIL7iiulkXNAzR9camVdLX_WyamqHC0maGDyA3kd8N4m_5mOGoB0UCUvb5s8h9Q50oW9WJMVJNpmEWfnu3tIHb2z9pVixGjWB8xh8VDiu9CWLmb-HlXdFoqRW4j5OMzHvSj7ay3s_Ru2F0feLklKBYbyO0G2SEL73diXFyvSDj9yxbweCjks9l-hn4X9wBAMbN8UVy7Pl0F2-i9yQMYICFphCPwcLLdFsx_oy5uk9naUN-2K44XWOpwHmqU9cqNLQ74RC78_GB4T643BrEFh_N3P2Ij1fte2tbvcWZg"
   apiserver.crt: |
     -----BEGIN CERTIFICATE-----
     MIIDBzCCAe+gAwIBAgIRALQ9GVMcgElapy6tZavCQnAwDQYJKoZIhvcNAQELBQAw
