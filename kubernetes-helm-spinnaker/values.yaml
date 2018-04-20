@@ -5,13 +5,14 @@
 
 # Configure your Docker registries here
 accounts:
-- name: dockerhub
-  address: https://index.docker.io
+- name: es-harbo
+  address: http://172.16.0.176
+  username: 2a9854ed9dd84ef4
+  password: Ta2380c5364deeca7
   repositories:
-    - library/alpine
-    - library/ubuntu
-    - library/centos
     - library/nginx
+    - 2a9854ed9dd84ef4/dubbo-demo-consumer
+    - 2a9854ed9dd84ef4/dubbo-demo-provider
 # - name: gcr
 #   address: https://gcr.io
 #   username: _json_key
