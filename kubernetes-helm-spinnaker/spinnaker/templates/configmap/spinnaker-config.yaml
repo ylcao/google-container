@@ -73,13 +73,13 @@ data:
       accounts:
         - name: spinnaker-service-account
           #kubeconfigFile: /root/.kube/config
-          namespace: webapp
           #user: root
           serviceAccount: true
+          #provider-version: v2
           dockerRegistries:
-          {{- range $index, $account := .Values.accounts }}
-          - accountName: {{ $account.name }}
-          {{ end }}
+            {{- range $index, $account := .Values.accounts }}
+            - accountName: {{ $account.name }}
+            {{ end }}
 
     dockerRegistry:
       {{ if .Values.accounts }}
@@ -216,6 +216,7 @@ data:
         pipelines: true,
         jobs: true,
         notifications: true,
+        artifacts: true,
         fastProperty: false,
         vpcMigrator: false,
         clusterDiff: false,
@@ -240,8 +241,8 @@ data:
       accounts:
         - name: spinnaker-service-account
           #kubeconfigFile: /root/.kube/config
-          namespace: webapp
           #user: root
+          #provider-version: v2
           serviceAccount: true
           dockerRegistries:
             {{- range $index, $account := .Values.accounts }}
@@ -444,7 +445,6 @@ data:
         enabled: true
         primaryCredentials:
           name: spinnaker-service-account
-          namespace: webapp
           dockerRegistryAccount: {{ $account.name }}
 
       dockerRegistry:
