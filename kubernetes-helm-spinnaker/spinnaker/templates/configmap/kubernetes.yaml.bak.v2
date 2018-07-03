@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "fullname" . }}-kubernetes-config
+  name: {{ template "fullname" . }}-kubernetes-config-test
 data:
   config: |
     apiVersion: v1
